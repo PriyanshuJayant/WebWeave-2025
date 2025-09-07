@@ -1,12 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Logo from '../images/Logo2.png'
+import Logo from "../images/Logo2.png";
 import "./Greet.scss";
 
-function Greet() {
+function Greet({ onClose }) {
   return (
     <div>
-      <div className="gradient-bg">
+      <motion.div
+        className="gradient-bg"
+        initial={{ opacity: 1 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.6 }}
+      >
         <svg xmlns="http://www.w3.org/2000/svg">
           <defs>
             <filter id="goo">
@@ -41,7 +47,7 @@ function Greet() {
               ease: "easeInOut",
             }}
           >
-            <img src={Logo}/>
+            <img src={Logo} />
           </motion.div>
 
           {/* Main animated text */}
@@ -60,6 +66,7 @@ function Greet() {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 6.7, duration: 0.8, ease: "easeOut" }}
+            onClick={onClose}
           >
             <span className="arrow">→</span>
           </motion.button>
@@ -73,7 +80,7 @@ function Greet() {
           <div className="g5"></div>
           <div className="interactive"></div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 }

@@ -1,12 +1,17 @@
-import React from 'react'
-import Greet from '../components/Greet'
+import React, { useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import Greet from "../components/Greet";
 
 function Home() {
+  const [showGreet, setShowGreet] = useState(true);
+
   return (
     <div>
-        <Greet/>
+      <AnimatePresence>
+        {showGreet && <Greet onClose={() => setShowGreet(false)} />}
+      </AnimatePresence>
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;
