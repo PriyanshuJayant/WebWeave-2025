@@ -4,7 +4,7 @@ body {
   margin: 0;
   padding: 0;
 }
-
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
 .text-container {
   z-index: 100;
   width: 100vw;
@@ -234,7 +234,8 @@ body {
 .hello-text {
   font-size: 5rem;
   font-weight: 700;
-  color: rgb(0, 0, 0);
+  font-family: "Quicksand", sans-serif;
+  color: rgb(255, 255, 255);
   text-align: center;
   position: absolute;
   white-space: nowrap;
@@ -245,7 +246,8 @@ body {
 .animated-text {
   font-size: 4rem;
   font-weight: 700;
-  color: rgb(0, 0, 0);
+  font-family: "Quicksand", sans-serif;
+  color: rgb(255, 255, 255);
   text-align: center;
   position: absolute;
   white-space: nowrap;
@@ -255,12 +257,13 @@ body {
 }
 .action-button {
   padding: 15px 30px;
-  background: rgba(0, 0, 0, 0.9);
-  color: #333;
+  margin-top: 1.3rem;
+  background: rgba(245, 245, 245, 0.9);
+  color: #000000;
   border: none;
   border-radius: 30px;
-  font-size: 1.2rem;
-  font-weight: 600;
+  font-size: 1.7rem;
+  font-weight: 900;
   cursor: pointer;
   position: absolute;
   top: calc(50% + 80px);
@@ -269,9 +272,13 @@ body {
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
 }
-.action-button:hover {
-  background: rgba(255, 255, 255, 1);
-  transform: translateY(18px);
+.action-button span {
+  background: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+.action-button:hover{
+  background-color: #d4d4d4;
 }
 
 /* Hello animation - appears and disappears */
@@ -363,4 +370,9 @@ body {
   .animated-text {
     font-size: 2.5rem;
   }
+}
+.animation-container img {
+  height: 120px;
+  mix-blend-mode: multiply;
+  background-size: contain;
 }

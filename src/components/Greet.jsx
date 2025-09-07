@@ -1,4 +1,6 @@
 import React from "react";
+import { motion } from "framer-motion";
+import Logo from '../images/Logo2.png'
 import "./Greet.scss";
 
 function Greet() {
@@ -16,7 +18,10 @@ function Greet() {
               <feColorMatrix
                 in="blur"
                 mode="matrix"
-                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -8"
+                values="1 0 0 0 0  
+                        0 1 0 0 0  
+                        0 0 1 0 0  
+                        0 0 0 18 -8"
                 result="goo"
               />
               <feBlend in="SourceGraphic" in2="goo" />
@@ -24,16 +29,40 @@ function Greet() {
           </defs>
         </svg>
 
-        <div class="animation-container">
-          <div class="hello-text" id="helloText">
-            Hello
-          </div>
-          <div class="animated-text" id="animatedText">
+        <div className="animation-container">
+          {/* Logo text */}
+          <motion.div
+            className="hello-text"
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: [100, 0, -20, -250], opacity: [0, 1, 1, 0] }}
+            transition={{
+              duration: 4,
+              times: [0, 0.25, 0.75, 1],
+              ease: "easeInOut",
+            }}
+          >
+            <img src={Logo}/>
+          </motion.div>
+
+          {/* Main animated text */}
+          <motion.div
+            className="animated-text"
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 4.2, duration: 2, ease: "easeOut" }}
+          >
             Meet the <br /> Online Store, again
-          </div>
-          <button class="action-button" id="actionButton">
-            →
-          </button>
+          </motion.div>
+
+          {/* Button */}
+          <motion.button
+            className="action-button"
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 6.7, duration: 0.8, ease: "easeOut" }}
+          >
+            <span className="arrow">→</span>
+          </motion.button>
         </div>
 
         <div className="gradients-container">
@@ -50,50 +79,3 @@ function Greet() {
 }
 
 export default Greet;
-
-//Aurora — the glow of next-gen shopping.
-// Meet your Online Store, again
-function startAnimation() {
-  const helloText = document.getElementById("helloText");
-  const mainText = document.getElementById("animatedText");
-  const button = document.getElementById("actionButton");
-
-  // Reset all animations
-  helloText.classList.remove("animate-hello");
-  mainText.classList.remove("animate-main");
-  button.classList.remove("animate-button");
-
-  // Reset positions and opacity
-  helloText.style.opacity = "0";
-  helloText.style.transform = "translateY(100px)";
-
-  mainText.style.opacity = "0";
-  mainText.style.transform = "translateY(100px)";
-
-  button.style.opacity = "0";
-  button.style.transform = "translateY(20px)";
-
-  // Force reflow
-  void helloText.offsetHeight;
-
-  // Start all animations (they have their own delays)
-  setTimeout(() => {
-    helloText.classList.add("animate-hello");
-    mainText.classList.add("animate-main");
-    button.classList.add("animate-button");
-  }, 100);
-}
-
-function restartAnimation() {
-  startAnimation();
-}
-
-// Auto-start animation when page loads
-window.addEventListener("load", () => {
-  setTimeout(startAnimation, 500);
-});
-
-// Auto-restart every 12 seconds for demo
-setInterval(() => {
-  startAnimation();
-}, 12000);
