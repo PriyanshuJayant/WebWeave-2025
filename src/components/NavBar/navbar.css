@@ -1,0 +1,13 @@
+.NavBar{
+    border: 2px solid black;
+    height: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.NavTabs{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
