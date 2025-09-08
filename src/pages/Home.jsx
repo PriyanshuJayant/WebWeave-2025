@@ -1,12 +1,22 @@
-// Home.jsx (Updated)
-import React, { useState, useEffect } from "react";
+// Home.jsx (Optimal Solution)
+import React, { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Greet from "../components/greet/Greet";
 import NavBar from "../components/NavBar/NavBar";
 import "../banner.css"; // Import the banner CSS
 
 function Home() {
-  const [showGreet, setShowGreet] = useState(true);
+  // Use ref to track if greet has been shown to prevent re-initialization
+  const greetShownRef = useRef(false);
+  
+  const [showGreet, setShowGreet] = useState(() => {
+    // Only show greet if it hasn't been shown yet this session
+    const hasBeenShown = sessionStorage.getItem('greetShown') === 'true';
+    if (hasBeenShown) {
+      greetShownRef.current = true;
+    }
+    return !hasBeenShown;
+  });
   
   useEffect(() => {
     if (showGreet) {
@@ -14,12 +24,24 @@ function Home() {
     } else {
       document.body.style.overflow = "auto";
     }
+
+    // Cleanup function to reset overflow when component unmounts
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, [showGreet]);
+
+  const handleCloseGreet = () => {
+    // Mark greet as shown in session storage
+    sessionStorage.setItem('greetShown', 'true');
+    greetShownRef.current = true;
+    setShowGreet(false);
+  };
 
   return (
     <div>
       <AnimatePresence mode="wait">
-        {showGreet ? (
+        {showGreet && !greetShownRef.current ? (
           <motion.div
             key="greet"
             initial={{ opacity: 1 }}
@@ -28,7 +50,7 @@ function Home() {
             transition={{ duration: 0.6 }}
             className="gradient-bg fixed inset-0"
           >
-            <Greet onClose={() => setShowGreet(false)} />
+            <Greet onClose={handleCloseGreet} />
           </motion.div>
         ) : (
           <motion.div
@@ -62,9 +84,6 @@ function Home() {
                 <div className="model"></div>
               </div>
             </div>
-
-
-
             {/* <Footer/> */}
           </motion.div>
         )}
