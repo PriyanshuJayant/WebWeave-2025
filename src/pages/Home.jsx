@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Greet from "../components/greet/Greet";
 import NavBar from "../components/NavBar/NavBar";
+import Footer from "../components/footer/Footer";
 
 function Home() {
   const [showGreet, setShowGreet] = useState(true);
@@ -16,7 +17,7 @@ function Home() {
   return (
     <div>
       <AnimatePresence mode="wait">
-        {!showGreet ? (
+        {showGreet ? (
           <motion.div
             key="greet"
             initial={{ opacity: 1 }}
@@ -35,6 +36,10 @@ function Home() {
             transition={{ duration: 0.6 }}
           >
             <NavBar />
+
+
+
+            <Footer/>
           </motion.div>
         )}
       </AnimatePresence>

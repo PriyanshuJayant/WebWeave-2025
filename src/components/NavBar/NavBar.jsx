@@ -10,12 +10,15 @@ function NavBar() {
       transition={{ duration: 0.8, ease: "easeOut" }}
       className="NavBar"
     >
-      <div>Logo</div>
-      <div className="NavTabs">
-        <div>Home</div>
-        <div>Products</div>
-        <div>Contact</div>
-      </div>
+  <div className="Logo">MyStore</div>
+
+  <div className="NavTabs">
+    <div className="NavItem">Home</div>
+    <div className="NavItem">Products</div>
+    <div className="NavItem">Contact</div>
+  </div>
+
+  <div className="CartButton">🛒</div>
     </motion.div>
   );
 }
