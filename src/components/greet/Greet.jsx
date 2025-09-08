@@ -81,6 +81,7 @@ function Greet({ onClose }) {
           {/* Button */}
           <motion.button
             className="action-button"
+            onClick={onClose}
             initial={{ y: 25, opacity: 0 }}
             animate={{
               y: 0,
@@ -91,7 +92,6 @@ function Greet({ onClose }) {
                 ease: "easeOut",
               },
             }}
-            onClick={onClose}
             whileHover={{
               scale: 1.1,
               transition: {
