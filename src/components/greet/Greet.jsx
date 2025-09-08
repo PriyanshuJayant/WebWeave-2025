@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Logo from "../../images/Logo2.png";
+import Logo from "../../assets/images/Logo2.png";
 import "./Greet.scss";
 
 function Greet({ onClose }) {
