@@ -19,7 +19,7 @@ function Home() {
   return (
     <div>
       <AnimatePresence mode="wait">
-        {!showGreet ? ( 
+        {showGreet ? (
           <motion.div
             key="greet"
             initial={{ opacity: 1 }}
@@ -62,6 +62,10 @@ function Home() {
                 <div className="model"></div>
               </div>
             </div>
+
+
+
+            {/* <Footer/> */}
           </motion.div>
         )}
       </AnimatePresence>
