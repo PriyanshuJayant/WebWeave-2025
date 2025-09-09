@@ -4,6 +4,7 @@ import Greet from "../components/greet/Greet";
 import NavBar from "../components/NavBar/NavBar";
 import ChooseButton from "../components/ChooseButton/ChooseButton";
 import "../banner.css";
+import "./Home.css"
 
 
 function Home() {
@@ -36,7 +37,7 @@ function Home() {
   };
 
   return (
-    <div>
+    <div className="HomeComponent">
       <AnimatePresence mode="wait">
         {showGreet && !greetShownRef.current ? (
           <Greet onClose={handleCloseGreet} />
