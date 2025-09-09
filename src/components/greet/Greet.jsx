@@ -87,7 +87,7 @@ function Greet({ onClose }) {
               y: 0,
               opacity: 1,
               transition: {
-                delay: 9, // only affects entrance
+                delay: 9,
                 duration: 0.8,
                 ease: "easeOut",
               },
