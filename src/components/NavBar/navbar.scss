@@ -1,0 +1,228 @@
+// Variables
+$primary-color: #1f2937;
+$secondary-color: #374151;
+$accent-color: #3b82f6;
+$background-light: #f9fafb;
+$text-primary: #111827;
+$text-secondary: #6b7280;
+$border-color: #e5e7eb;
+$white: #ffffff;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin button-hover {
+  transition: color 0.2s ease-in-out;
+  &:hover {
+    color: $text-primary;
+  }
+}
+
+// Main navbar styles
+.merto-navbar {
+  background: $white;
+  border-bottom: 1px solid $border-color;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+
+  // Top bar
+  &__top-bar {
+    background: $primary-color;
+    color: $white;
+    font-size: 0.75rem;
+    padding: 0.25rem 1rem;
+    text-align: right;
+  }
+
+  // Main container
+  &__container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    @media (min-width: 640px) {
+      padding: 0 1.5rem;
+    }
+
+    @media (min-width: 1024px) {
+      padding: 0 2rem;
+    }
+  }
+
+  // Main header
+  &__header {
+    @include flex-center;
+    justify-content: space-between;
+    height: 4rem;
+  }
+
+  // Logo
+  &__logo {
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $text-primary;
+  }
+
+  // Search section
+  &__search {
+    flex: 1;
+    max-width: 32rem;
+    margin: 0 2rem;
+
+    &-container {
+      position: relative;
+    }
+
+    &-input {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      padding-right: 3rem;
+      color: $text-primary;
+      background: $background-light;
+      border: 1px solid #d1d5db;
+      border-radius: 0.5rem;
+      outline: none;
+      
+      &:focus {
+        ring: 2px;
+        ring-color: $accent-color;
+        border-color: transparent;
+      }
+
+      &::placeholder {
+        color: $text-secondary;
+      }
+    }
+
+    &-button {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 100%;
+      padding: 0 1rem;
+      background: $primary-color;
+      color: $white;
+      border: none;
+      border-radius: 0 0.5rem 0.5rem 0;
+      cursor: pointer;
+      @include flex-center;
+      
+      &:hover {
+        background: $secondary-color;
+      }
+
+      svg {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+  }
+
+  // Actions (right side)
+  &__actions {
+    @include flex-center;
+    gap: 1.5rem;
+  }
+
+  &__action-btn {
+    @include flex-center;
+    gap: 0.25rem;
+    color: $text-secondary;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.875rem;
+    @include button-hover;
+
+    svg {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+
+    &--icon-only {
+      position: relative;
+      
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    background: $accent-color;
+    color: $white;
+    font-size: 0.75rem;
+    border-radius: 50%;
+    width: 1.25rem;
+    height: 1.25rem;
+    @include flex-center;
+    justify-content: center;
+  }
+
+  // Secondary navigation
+  &__secondary {
+    background: $background-light;
+    border-top: 1px solid $border-color;
+
+    &-content {
+      @include flex-center;
+      justify-content: space-between;
+      height: 3rem;
+    }
+
+    &-nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    &-link {
+      @include flex-center;
+      gap: 0.25rem;
+      color: $text-secondary;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 0.875rem;
+      @include button-hover;
+    }
+
+    &-icon {
+      width: 1rem;
+      height: 1rem;
+      background: #9ca3af;
+      border-radius: 0.125rem;
+    }
+
+    &-recently-viewed {
+      font-size: 0.875rem;
+      color: $text-secondary;
+    }
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .merto-navbar {
+    &__search {
+      margin: 0 1rem;
+      max-width: 20rem;
+    }
+
+    &__actions {
+      gap: 1rem;
+    }
+
+    &__secondary-nav {
+      gap: 1rem;
+      overflow-x: auto;
+      padding-bottom: 0.25rem;
+    }
+  }
+}

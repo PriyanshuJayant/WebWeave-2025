@@ -42,16 +42,7 @@ function Home() {
     <div>
       <AnimatePresence mode="wait">
         {showGreet && !greetShownRef.current ? (
-          // <motion.div
-          //   key="greet"
-          //   initial={{ opacity: 1 }}
-          //   animate={{ opacity: 1 }}
-          //   exit={{ opacity: 0 }}
-          //   transition={{ duration: 0.6 }}
-          //   className="gradient-bg fixed inset-0"
-          // >
             <Greet onClose={handleCloseGreet} />
-          // </motion.div>
         ) : (
           <motion.div
             key="main"
@@ -59,7 +50,7 @@ function Home() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
-            {/* <NavBar /> */}
+            <NavBar />
             {/* Integrated Banner Component */}
             <div className="banner">
               <div className="slider" style={{"--quantity": 5}}>

@@ -1,25 +1,54 @@
 import React from "react";
 import { motion } from "framer-motion";
-import './navbar.css'
+import './navbar.scss'
+import { Search, User, Heart, ShoppingCart } from 'lucide-react';
 
 function NavBar() {
   return (
-    <motion.div
-      initial={{ y: -100, opacity: 0 }} // Start off-screen above
-      animate={{ y: 0, opacity: 1 }} // Slide into place
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      className="NavBar"
-    >
-  <div className="Logo">MyStore</div>
-
-  <div className="NavTabs">
-    <div className="NavItem">Home</div>
-    <div className="NavItem">Products</div>
-    <div className="NavItem">Contact</div>
-  </div>
-
-  <div className="CartButton">🛒</div>
-    </motion.div>
+    <nav className="merto-navbar">
+      {/* Main navbar */}
+      <div className="merto-navbar__container">
+        <div className="merto-navbar__header">
+          {/* Logo */}
+          <div className="merto-navbar__logo">
+            Merto
+          </div>
+          
+          {/* Search bar */}
+          <div className="merto-navbar__search">
+            <div className="merto-navbar__search-container">
+              <input
+                type="text"
+                placeholder="Search for products"
+                className="merto-navbar__search-input"
+              />
+              <button className="merto-navbar__search-button">
+                <Search />
+              </button>
+            </div>
+          </div>
+          
+          {/* Right side icons */}
+          <div className="merto-navbar__actions">
+            <button className="merto-navbar__action-btn">
+              <User />
+              <span>Account</span>
+            </button>
+            
+            <button className="merto-navbar__action-btn merto-navbar__action-btn--icon-only">
+              <Heart />
+              <span className="merto-navbar__badge">0</span>
+            </button>
+            
+            <button className="merto-navbar__action-btn merto-navbar__action-btn--icon-only">
+              <ShoppingCart />
+              <span className="merto-navbar__badge">0</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+    </nav>
   );
 }
 
