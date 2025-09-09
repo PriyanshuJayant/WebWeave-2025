@@ -12,11 +12,6 @@ function App() {
 
   return (
     <div className="App">
-      {/* {showGreet ? (
-        <Greet onClose={handleGreetClose} />
-      ) : (
-        <Home />
-      )} */}
       <Home/>
     </div>
   );
