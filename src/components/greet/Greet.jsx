@@ -1,26 +1,9 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import Logo from "../../assets/images/Logo2.png";
 import "./Greet.scss";
-import ArcSound from "../../assets/audio/Arc.m4a";
 
 function Greet({ onClose }) {
-  const audioRef = useRef(null);
-
-  useEffect(() => {
-  const startAudio = () => {
-    if (!audioRef.current) {
-      audioRef.current = new Audio(ArcSound);
-      audioRef.current.play();
-    }
-    window.removeEventListener("click", startAudio);
-  };
-
-  window.addEventListener("click", startAudio);
-
-  return () => window.removeEventListener("click", startAudio);
-}, []);
-
   return (
     <div>
       <motion.div
@@ -59,8 +42,7 @@ function Greet({ onClose }) {
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: [100, 0, -20, -250], opacity: [0, 1, 1, 0] }}
             transition={{
-              delay:4,
-              duration: 3,
+              duration: 4,
               times: [0, 0.25, 0.75, 1],
               ease: "easeInOut",
             }}
@@ -73,7 +55,7 @@ function Greet({ onClose }) {
             className="animated-text"
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 7, duration: 2, ease: "easeOut" }}
+            transition={{ delay: 4.2, duration: 2, ease: "easeOut" }}
           >
             Meet the <br /> Online Store, again
           </motion.div>
