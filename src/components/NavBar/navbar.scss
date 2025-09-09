@@ -85,12 +85,6 @@ $white: #ffffff;
       border: 1px solid #d1d5db;
       border-radius: 0.5rem;
       outline: none;
-      
-      &:focus {
-        ring: 2px;
-        ring-color: $accent-color;
-        border-color: transparent;
-      }
 
       &::placeholder {
         color: $text-secondary;
