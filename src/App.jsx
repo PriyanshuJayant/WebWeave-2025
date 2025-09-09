@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import "./App.css";
 import Home from "./pages/Home";
 import Greet from "./components/greet/Greet";
+import {Routes, Route,BrowserRouter } from "react-router-dom";
+import PC from "./pages/PCProducts/PC";
+import Console from "./pages/ConsoleProducts/Console";
 
 function App() {
   const [showGreet, setShowGreet] = useState(true);
@@ -11,9 +14,15 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <Home/>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/pc" element={<PC />} />
+          <Route path="/console" element={<Console />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 
