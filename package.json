@@ -11,6 +11,7 @@
     "motion": "^12.23.12",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-router-dom": "^7.8.2",
     "react-scripts": "5.0.1",
     "swiper": "^11.2.10",
     "vercel": "^47.0.5",
@@ -45,7 +46,6 @@
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
     "sass": "^1.92.1",
-    "scss": "^0.2.4",
-    "tailwindcss": "^4.1.13"
+    "scss": "^0.2.4"
   }
 }
