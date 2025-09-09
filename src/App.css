@@ -45,16 +45,30 @@
 }
 
 body {
-    background-color: #D2D2D2;
-    background-image:
-        repeating-linear-gradient(
-            to right, transparent 0 100px,
-            #25283b22 100px 101px
-        ),
-        repeating-linear-gradient(
-            to bottom, transparent 0 100px,
-            #25283b22 100px 101px
-        );
+ background: 
+    linear-gradient(135deg, 
+      #1a1a2e 0%, 
+      #2a2a4a 25%, 
+      #4d3b89 50%, 
+      #5d4b99 75%, 
+      #2a2a4a 100%
+    ),
+    repeating-linear-gradient(
+      to right, transparent 0 100px,
+      rgba(255, 0, 107, 0.08) 100px 101px
+    ),
+    repeating-linear-gradient(
+      to bottom, transparent 0 100px,
+      rgba(0, 212, 255, 0.08) 100px 101px
+    );
+  background-size: 200% 200%, 100px 100px, 100px 100px;
+  animation: cosmicShift 12s ease-in-out infinite;
+  min-height: 100vh;
+}
+
+@keyframes cosmicShift {
+  0%, 100% { background-position: 0% 50%, 0 0, 0 0; }
+  50% { background-position: 100% 50%, 0 0, 0 0; }
 }
 
 body::before {

@@ -42,18 +42,6 @@ function Home() {
     <div>
       <AnimatePresence mode="wait">
         {showGreet && !greetShownRef.current ? (
-<<<<<<< HEAD
-          <motion.div
-            key="greet"
-            initial={{ opacity: 1 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.6 }}
-            className="gradient-bg fixed inset-0"
-          >
-            <Greet onClose={handleCloseGreet} />
-          </motion.div>
-=======
           // <motion.div
           //   key="greet"
           //   initial={{ opacity: 1 }}
@@ -64,7 +52,6 @@ function Home() {
           // >
             <Greet onClose={handleCloseGreet} />
           // </motion.div>
->>>>>>> 030c9a0e5c2e43b20005dc470cefe4cf0ff8f61a
         ) : (
           <motion.div
             key="main"
