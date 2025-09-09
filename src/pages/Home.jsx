@@ -50,21 +50,21 @@ function Home() {
           >
             <ChooseButton/>
             <div className="banner">
-              <div className="slider" style={{ "--quantity": 5 }}>
-                <div className="item" style={{ "--position": 1 }}>
-                  <img src="/images/dragon_1.jpg" alt="Dragon 1" />
+              <div className="slider" style={{"--quantity": 5}}>
+                <div className="item" style={{"--position": 1}}>
+                  <img src="/images/darkpc.jpg" alt="Dragon 1" />
                 </div>
-                <div className="item" style={{ "--position": 2 }}>
-                  <img src="/images/dragon_2.jpg" alt="Dragon 2" />
+                <div className="item" style={{"--position": 2}}>
+                  <img src="/images/ds.jpg" alt="Ps5 Controller" />
                 </div>
-                <div className="item" style={{ "--position": 3 }}>
-                  <img src="/images/dragon_3.jpg" alt="Dragon 3" />
+                <div className="item" style={{"--position": 3}}>
+                  <img src="/images/ps5.jpg" alt="Ps5" />
                 </div>
-                <div className="item" style={{ "--position": 4 }}>
-                  <img src="/images/dragon_4.jpg" alt="Dragon 4" />
+                <div className="item" style={{"--position": 4}}>
+                  <img src="/images/rogpc.jpg" alt="Laptop" />
                 </div>
-                <div className="item" style={{ "--position": 5 }}>
-                  <img src="/images/dragon_5.jpg" alt="Dragon 5" />
+                <div className="item" style={{"--position": 5}}>
+                  <img src="/images/pc.jpg" alt="Gaming Mouse" />
                 </div>
               </div>
               <div className="content">
@@ -75,7 +75,9 @@ function Home() {
           </motion.div>
         )}
       </AnimatePresence>
+
     </div>
+    
   );
 }
 
