@@ -38,7 +38,7 @@
 }
 
 
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -64,24 +64,9 @@ body {
   background-size: 200% 200%, 100px 100px, 100px 100px;
   animation: cosmicShift 12s ease-in-out infinite;
   min-height: 100vh;
-}
+} */
 
 @keyframes cosmicShift {
   0%, 100% { background-position: 0% 50%, 0 0, 0 0; }
   50% { background-position: 100% 50%, 0 0, 0 0; }
-}
-
-body::before {
-    position: absolute;
-    width: min(1400px, 90vw);
-    top: 10%;
-    left: 50%;
-    height: 90%;
-    transform: translateX(-50%);
-    content: '';
-    background-image: url(/public/images/bg.png);
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: top center;
-    pointer-events: none;
 }

@@ -7,6 +7,25 @@
     text-align: center;
     overflow: hidden;
     position: relative;
+     background: 
+    linear-gradient(135deg, 
+      #1a1a2e 0%, 
+      #2a2a4a 25%, 
+      #4d3b89 50%, 
+      #5d4b99 75%, 
+      #2a2a4a 100%
+    ),
+    repeating-linear-gradient(
+      to right, transparent 0 100px,
+      rgba(255, 0, 107, 0.08) 100px 101px
+    ),
+    repeating-linear-gradient(
+      to bottom, transparent 0 100px,
+      rgba(0, 212, 255, 0.08) 100px 101px
+    );
+  background-size: 200% 200%, 100px 100px, 100px 100px;
+  animation: cosmicShift 12s ease-in-out infinite;
+  min-height: 100vh;
 }
 .banner .slider{
     position: absolute;
@@ -130,4 +149,19 @@
     .banner .content h1{
         font-size: 5em;
     }
+}
+
+.HomeComponent::before {
+    position: absolute;
+    width: min(1400px, 90vw);
+    top: 10%;
+    left: 50%;
+    height: 90%;
+    transform: translateX(-50%);
+    content: '';
+    background-image: url(/public/images/bg.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    pointer-events: none;
 }
