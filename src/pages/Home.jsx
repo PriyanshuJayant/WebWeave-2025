@@ -51,7 +51,6 @@ function Home() {
             transition={{ duration: 0.6 }}
           >
             <NavBar />
-            {/* Integrated Banner Component */}
             <div className="banner">
               <div className="slider" style={{"--quantity": 5}}>
                 <div className="item" style={{"--position": 1}}>
@@ -75,7 +74,6 @@ function Home() {
                 <div className="model"></div>
               </div>
             </div>
-            {/* <Footer/> */}
           </motion.div>
         )}
       </AnimatePresence>

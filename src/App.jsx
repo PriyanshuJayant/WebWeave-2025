@@ -12,11 +12,12 @@ function App() {
 
   return (
     <div className="App">
-      {showGreet ? (
+      {/* {showGreet ? (
         <Greet onClose={handleGreetClose} />
       ) : (
         <Home />
-      )}
+      )} */}
+      <Home/>
     </div>
   );
 }
