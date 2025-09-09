@@ -1,0 +1,84 @@
+.button-wrapper {
+  position: absolute;
+  top: 18%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* ⬅️ centers perfectly */
+  z-index: 100;
+}
+
+.gradient-button {
+  position: relative;
+  display: inline-block;
+  padding: 1px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: white;
+  background-color: #1f2937;
+  box-shadow: 0 25px 50px -12px rgba(39, 39, 42, 1);
+  cursor: pointer;
+  border-radius: 0.75rem;
+  transition: transform 300ms ease-in-out;
+  border: none;
+  font-size: 25px;
+  font-family: inherit;
+}
+
+.gradient-button:hover {
+  transform: scale(1.1);
+}
+
+.gradient-button:active {
+  transform: scale(0.95);
+}
+
+.gradient-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  background: linear-gradient(to right, #2dd4bf, #3b82f6, #a855f7);
+  padding: 2px;
+  opacity: 0;
+  transition: opacity 500ms;
+  pointer-events: none;
+}
+
+.button-wrapper:hover .gradient-border {
+  opacity: 1;
+}
+
+.button-content {
+  position: relative;
+  z-index: 10;
+  display: block;
+  padding: 1rem 2.3rem;
+  border-radius: 0.75rem;
+  background-color: #030712;
+}
+
+.button-inner {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.button-text {
+  transition: transform 500ms;
+  display: inline-block;
+}
+
+.button-wrapper:hover .button-text {
+  transform: translateX(0.25rem);
+}
+
+.button-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: transform 500ms;
+  flex-shrink: 0;
+}
+
+.button-wrapper:hover .button-icon {
+  transform: translateX(0.25rem);
+}
