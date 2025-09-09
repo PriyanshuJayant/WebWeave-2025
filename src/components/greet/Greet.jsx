@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Logo from "../../assets/images/Logo2.png";
 import "./Greet.scss";
+import ArcSound from "../../assets/audio/Arc.m4a";
 
 function Greet({ onClose }) {
+  const audioRef = useRef(null);
+
+  useEffect(() => {
+  const startAudio = () => {
+    if (!audioRef.current) {
+      audioRef.current = new Audio(ArcSound);
+      audioRef.current.play();
+    }
+    window.removeEventListener("click", startAudio);
+  };
+
+  window.addEventListener("click", startAudio);
+
+  return () => window.removeEventListener("click", startAudio);
+}, []);
   return (
     <div>
       <motion.div
