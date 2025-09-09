@@ -1,23 +1,22 @@
-// Home.jsx (Optimal Solution)
 import React, { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Greet from "../components/greet/Greet";
 import NavBar from "../components/NavBar/NavBar";
-import "../banner.css"; // Import the banner CSS
+import ChooseButton from "../components/ChooseButton/ChooseButton";
+import "../banner.css";
+
 
 function Home() {
-  // Use ref to track if greet has been shown to prevent re-initialization
   const greetShownRef = useRef(false);
-  
+
   const [showGreet, setShowGreet] = useState(() => {
-    // Only show greet if it hasn't been shown yet this session
-    const hasBeenShown = sessionStorage.getItem('greetShown') === 'true';
+    const hasBeenShown = sessionStorage.getItem("greetShown") === "true";
     if (hasBeenShown) {
       greetShownRef.current = true;
     }
     return !hasBeenShown;
   });
-  
+
   useEffect(() => {
     if (showGreet) {
       document.body.style.overflow = "hidden";
@@ -25,15 +24,13 @@ function Home() {
       document.body.style.overflow = "auto";
     }
 
-    // Cleanup function to reset overflow when component unmounts
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [showGreet]);
 
   const handleCloseGreet = () => {
-    // Mark greet as shown in session storage
-    sessionStorage.setItem('greetShown', 'true');
+    sessionStorage.setItem("greetShown", "true");
     greetShownRef.current = true;
     setShowGreet(false);
   };
@@ -42,7 +39,7 @@ function Home() {
     <div>
       <AnimatePresence mode="wait">
         {showGreet && !greetShownRef.current ? (
-            <Greet onClose={handleCloseGreet} />
+          <Greet onClose={handleCloseGreet} />
         ) : (
           <motion.div
             key="main"
@@ -50,7 +47,7 @@ function Home() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
           >
-            <NavBar />
+            <ChooseButton/>
             <div className="banner">
               <div className="slider" style={{"--quantity": 5}}>
                 <div className="item" style={{"--position": 1}}>
