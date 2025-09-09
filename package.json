@@ -45,7 +45,6 @@
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.6",
     "sass": "^1.92.1",
-    "scss": "^0.2.4",
-    "tailwindcss": "^4.1.13"
+    "scss": "^0.2.4"
   }
 }
